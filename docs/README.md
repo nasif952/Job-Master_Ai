@@ -17,7 +17,7 @@ A comprehensive, AI-powered job search automation platform built with modern web
 - **Smart Prompts**: Specialized system prompts for different use cases
 
 ### 💼 **Job Management**
-- Track job opportunities with detailed information
+- Browse LinkedIn jobs from N8N-processed database
 - AI-powered job analysis and match scoring  
 - Application status tracking and notes
 - Priority and tag-based organization
@@ -30,10 +30,10 @@ A comprehensive, AI-powered job search automation platform built with modern web
 - Token counting and context window management
 
 ### 📄 **CV & Resume Tools**
-- CV upload and analysis
+- CV text input and analysis
 - AI-powered resume optimization
-- ATS compatibility checking
 - Skills extraction and matching
+- Context integration for personalized advice
 
 ### 📧 **Email Automation**
 - Professional email generation
@@ -65,7 +65,7 @@ A comprehensive, AI-powered job search automation platform built with modern web
 
 ### **AI & Integration**
 - **OpenAI API** (GPT-4o-mini)
-- **LangChain** patterns for AI workflows
+- **N8N External Pipeline**: Automated job scraping and processing
 - **Intelligent prompt management**
 - **Context-aware conversations**
 
@@ -118,6 +118,21 @@ Comprehensive schema with full user isolation:
 - **CoachingSessions**: Career coaching data
 - **Assessments**: Skills and career assessments
 - **LearningPlans**: Personalized development paths
+
+## 📊 **Data Pipeline Architecture**
+
+### **N8N External Pipeline**
+1. **Job Scraping**: Automated LinkedIn job collection
+2. **Data Processing**: Job description formatting and cleaning
+3. **AI Analysis**: N8N AI agent identifies job attributes and requirements
+4. **Rating System**: Automated job scoring based on multiple criteria
+5. **Database Storage**: Processed jobs stored in Supabase `Linkedin_JobFound` table
+
+### **Application Data Flow**
+1. **Job Browsing**: Frontend fetches jobs from `Linkedin_JobFound` table
+2. **Job Import**: Users can import jobs to personal `jobs` table
+3. **AI Chat**: Agents analyze jobs with user CV context
+4. **Session Management**: Isolated conversations per user/job/agent
 
 ## 🚀 Getting Started
 
@@ -190,21 +205,19 @@ Visit `http://localhost:3000` to see the application.
 - [x] Form validation with Zod
 - [x] State management with Zustand
 - [x] Landing page and auth pages
-- [x] Basic dashboard layout
+- [x] Dashboard with job browsing and chat
 - [x] OpenAI client configuration
-- [x] Utility functions and helpers
+- [x] AI chat system with 4 specialized agents
+- [x] CV text processing and analysis
+- [x] Job management from N8N-processed database
+- [x] Security implementation with RLS
+- [x] Dual theme system (light/dark)
+- [x] Session management and isolation
 
-### 🚧 **Next Steps**
-- [ ] Job management CRUD operations
-- [ ] AI chat interface implementation
-- [ ] CV upload and analysis
-- [ ] Email generation system
-- [ ] Career coaching features
-- [ ] Interview preparation tools
-- [ ] Learning plan creation
-- [ ] Assessment system
-- [ ] Database migrations and RLS policies
-- [ ] API route implementations
+### 📋 **External Dependencies**
+- **N8N Pipeline**: External workflow for job scraping and processing
+- **Supabase Database**: Central data storage for processed LinkedIn jobs
+- **OpenAI API**: AI-powered analysis and chat functionality
 
 ## 🤝 Contributing
 
